@@ -29,6 +29,16 @@ public class GameManager : MonoBehaviour
     public TMP_Text TechPerSecondText;
     public TMP_Text TechPerClickText;
 
+    public GameObject computer1;
+    public GameObject computer2;
+    public GameObject computer3;
+    public GameObject lights1;
+    public GameObject lights2;
+    public GameObject storage1;
+    public GameObject storage2;
+    public GameObject storage3;
+    
+
     void Start()
     {
         secondTimer = 0;
@@ -52,8 +62,8 @@ public class GameManager : MonoBehaviour
             TechPointCounter.text = "" + currentTechPoints + " Tech Points";
 
             totalPassivePerSecond = (passive1Upgrades * 2) + (passive2Upgrades * 10);
-            TechPerSecondText.text = "" + totalPassivePerSecond + " Tech per Second";
-            TechPerClickText.text = "" + clickUpgrades + " Tech per Click";
+            TechPerSecondText.text = "" + totalPassivePerSecond + " TP per Second";
+            TechPerClickText.text = "" + clickUpgrades + " TP per Click";
             
             currentTechPoints = currentTechPoints + totalPassivePerSecond;
             totalTechPoints = totalTechPoints + totalPassivePerSecond;
@@ -73,7 +83,19 @@ public class GameManager : MonoBehaviour
             clickUpgrades = clickUpgrades + 1;
             clickUpgradeCost = clickUpgradeCost + 25;
             ClickUpgradeAmountText.text = "" + clickUpgrades;
-            ClickUpgradeCostText.text = "" + clickUpgradeCost + " Tech";
+            ClickUpgradeCostText.text = "" + clickUpgradeCost + "TP";
+
+            if (clickUpgrades == 5)
+            {
+                computer1.SetActive(false);
+                computer2.SetActive(true);
+            }
+
+            if (clickUpgrades == 20)
+            {
+                computer2.SetActive(false);
+                computer3.SetActive(true);
+            }
         }
     }
 
@@ -85,7 +107,13 @@ public class GameManager : MonoBehaviour
             passive1Upgrades = passive1Upgrades + 1;
             passive1Cost = passive1Cost + 50;
             passive1AmountText.text = "" + passive1Upgrades;
-            passive1CostText.text = "" + passive1Cost + " Tech";
+            passive1CostText.text = "" + passive1Cost + "TP";
+
+            if (passive1Upgrades == 10)
+            {
+                lights1.SetActive(false);
+                lights2.SetActive(true);
+            }
         }
     }
     
@@ -97,7 +125,19 @@ public class GameManager : MonoBehaviour
             passive2Upgrades = passive2Upgrades + 1;
             passive2Cost = passive2Cost + 250;
             passive2AmountText.text = "" + passive2Upgrades;
-            passive2CostText.text = "" + passive2Cost + " Tech";
+            passive2CostText.text = "" + passive2Cost + "TP";
+
+            if (passive2Upgrades == 5)
+            {
+                storage1.SetActive(false);
+                storage2.SetActive(true);
+            }
+
+            if (passive2Upgrades == 15)
+            {
+                storage2.SetActive(false);
+                storage3.SetActive(true);
+            }
         }
     }
 }
