@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text TechPointCounter;
     public TMP_Text TechPerSecondText;
     public TMP_Text TechPerClickText;
+
     void Start()
     {
         secondTimer = 0;
