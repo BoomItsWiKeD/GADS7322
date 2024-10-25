@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         if (secondTimer < 0)
         {
             secondTimer = 1;
-            TechPointCounter.text = "" + currentTechPoints + " Tech Points";
+            TechPointCounter.text = "" + currentTechPoints + " Tech";
 
             totalPassivePerSecond = (passive1Upgrades * 2) + (passive2Upgrades * 10) + (passive3Upgrades * 100) + (passive4Upgrades * 1000) + (passive5Upgrades * 15000);
             totalPassiveEarned = totalPassiveEarned + totalPassivePerSecond;
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
         currentTechPoints = currentTechPoints + clickUpgrades;
         totalEarnedByClicks = totalEarnedByClicks + clickUpgrades;
         totalTechPoints = totalTechPoints + clickUpgrades;
-        TechPointCounter.text = "" + currentTechPoints + " Tech Points";
+        TechPointCounter.text = "" + currentTechPoints + " Tech";
     }
 
     public void onClickUpgrade()
